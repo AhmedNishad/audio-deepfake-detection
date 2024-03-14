@@ -1,0 +1,557 @@
+[94m-------------------------------------------------[0m
+[94m---  Start program 2024-03-11 23:44:37.855951 ---[0m
+[94m-------------------------------------------------[0m
+[94mLoad module: config_auto[0m
+[94mLoad module: model[0m
+[94m----------------------------------------------------------------[0m
+[94m---  Loading dataset toy_eval_set 2024-03-11 23:44:47.365898 ---[0m
+[94m----------------------------------------------------------------[0m
+[94mGet data statistis (may be slow due to data I/O)[0m
+------------------------------------------------>|
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>[94m[0m
+Merge datasets by: concatenate
+Dataset toy_eval_set:
+  Time steps: 7145414 
+  Data sequence num: 150
+  Maximum sequence length: 138028
+  Minimum sequence length: 10587
+  Inputs
+    Dirs:
+        D:/Uni/FYP/Implementation/Code/SSL/project/DATA/toy_example/eval
+    Exts:['.wav']
+    Dims:[1]
+    Reso:[1]
+    Norm:[False]
+  Outputs
+    Dirs:
+    Exts:['.bin']
+    Dims:[1]
+    Reso:[1]
+    Norm:[False]
+{'batch_size': 1, 'shuffle': False, 'num_workers': 0, 'sampler': 'None'}
+[94m
+Use single GPU: NVIDIA GeForce GTX 1660 Ti
+[0m
+[94mModel check:[0m
+[OK]: prepare_mean_std found
+[OK]: normalize_input found
+[OK]: normalize_target found
+[OK]: denormalize_output found
+[OK]: forward found
+[OK]: inference is ignored, alternative method for inference
+[OK]: loss is ignored, loss defined within model module
+[OK]: other_setups is ignored, other setup functions before training
+[OK]: flag_validation is ignored, flag to indicate train or validation set
+[OK]: validation is ignored, deprecated. Please use model.flag_validation
+[OK]: finish_up_inference is ignored, method to finish up work after inference
+[94mModel check done
+[0m
+[94mModel infor:[0m
+Model(
+  (m_frontend): ModuleList(
+    (0): Linear(in_features=1024, out_features=128, bias=True)
+  )
+  (m_transform): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(1, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+      (1): MaxFeatureMap2D()
+      (2): MaxPool2d(kernel_size=[2, 2], stride=[2, 2], padding=0, dilation=1, ceil_mode=False)
+      (3): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1))
+      (4): MaxFeatureMap2D()
+      (5): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=False, track_running_stats=True)
+      (6): Conv2d(32, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (7): MaxFeatureMap2D()
+      (8): MaxPool2d(kernel_size=[2, 2], stride=[2, 2], padding=0, dilation=1, ceil_mode=False)
+      (9): BatchNorm2d(48, eps=1e-05, momentum=0.1, affine=False, track_running_stats=True)
+      (10): Conv2d(48, 96, kernel_size=(1, 1), stride=(1, 1))
+      (11): MaxFeatureMap2D()
+      (12): BatchNorm2d(48, eps=1e-05, momentum=0.1, affine=False, track_running_stats=True)
+      (13): Conv2d(48, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (14): MaxFeatureMap2D()
+      (15): MaxPool2d(kernel_size=[2, 2], stride=[2, 2], padding=0, dilation=1, ceil_mode=False)
+      (16): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+      (17): MaxFeatureMap2D()
+      (18): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=True)
+      (19): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (20): MaxFeatureMap2D()
+      (21): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=False, track_running_stats=True)
+      (22): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1))
+      (23): MaxFeatureMap2D()
+      (24): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=False, track_running_stats=True)
+      (25): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (26): MaxFeatureMap2D()
+      (27): MaxPool2d(kernel_size=[2, 2], stride=[2, 2], padding=0, dilation=1, ceil_mode=False)
+      (28): Dropout(p=0.7, inplace=False)
+    )
+  )
+  (m_output_act): ModuleList(
+    (0): Linear(in_features=256, out_features=2, bias=True)
+  )
+  (m_before_pooling): ModuleList(
+    (0): Sequential(
+      (0): BLSTMLayer(
+        (l_blstm): LSTM(256, 128, bidirectional=True)
+      )
+      (1): BLSTMLayer(
+        (l_blstm): LSTM(256, 128, bidirectional=True)
+      )
+    )
+  )
+  (m_loss): CrossEntropyLoss()
+)
+Parameter number: 1079746
+
+[92mStart inference (generation):[0m
+[94mGenerate minibatch indexed within [0,150)[0m
+Output, LA_E_1066571, -1, -0.141981, 0.574114
+[91mNo output saved: ('0,LA_E_1066571,0,42902,0',)[0m
+Generating 1, 0,LA_E_1066571,0,42902,0, time cost: 5.504s
+Output, LA_E_1103065, -1, -0.155639, 0.572282
+[91mNo output saved: ('1,LA_E_1103065,0,57800,0',)[0m
+Generating 2, 1,LA_E_1103065,0,57800,0, time cost: 0.066s
+Output, LA_E_1110205, -1, -0.158671, 0.571839
+[91mNo output saved: ('2,LA_E_1110205,0,63868,0',)[0m
+Generating 3, 2,LA_E_1110205,0,63868,0, time cost: 0.073s
+Output, LA_E_1124379, -1, -0.133336, 0.574941
+[91mNo output saved: ('3,LA_E_1124379,0,40000,0',)[0m
+Generating 4, 3,LA_E_1124379,0,40000,0, time cost: 0.061s
+Output, LA_E_1172749, -1, -0.164069, 0.571443
+[91mNo output saved: ('4,LA_E_1172749,0,79682,0',)[0m
+Generating 5, 4,LA_E_1172749,0,79682,0, time cost: 0.092s
+Output, LA_E_1236958, -1, -0.122232, 0.577662
+[91mNo output saved: ('5,LA_E_1236958,0,34316,0',)[0m
+Generating 6, 5,LA_E_1236958,0,34316,0, time cost: 0.046s
+Output, LA_E_1269802, -1, -0.086468, 0.582042
+[91mNo output saved: ('6,LA_E_1269802,0,20347,0',)[0m
+Generating 7, 6,LA_E_1269802,0,20347,0, time cost: 0.142s
+Output, LA_E_1374697, -1, -0.144269, 0.574313
+[91mNo output saved: ('7,LA_E_1374697,0,49891,0',)[0m
+Generating 8, 7,LA_E_1374697,0,49891,0, time cost: 0.054s
+Output, LA_E_1389976, -1, -0.157646, 0.571635
+[91mNo output saved: ('8,LA_E_1389976,0,65539,0',)[0m
+Generating 9, 8,LA_E_1389976,0,65539,0, time cost: 0.077s
+Output, LA_E_1390049, -1, -0.147526, 0.573357
+[91mNo output saved: ('9,LA_E_1390049,0,48368,0',)[0m
+Generating 10, 9,LA_E_1390049,0,48368,0, time cost: 0.054s
+Output, LA_E_1477083, -1, -0.114345, 0.577524
+[91mNo output saved: ('10,LA_E_1477083,0,29692,0',)[0m
+Generating 11, 10,LA_E_1477083,0,29692,0, time cost: 0.127s
+Output, LA_E_1479744, -1, -0.138099, 0.575121
+[91mNo output saved: ('11,LA_E_1479744,0,44399,0',)[0m
+Generating 12, 11,LA_E_1479744,0,44399,0, time cost: 0.054s
+Output, LA_E_1568269, -1, -0.105254, 0.579633
+[91mNo output saved: ('12,LA_E_1568269,0,22013,0',)[0m
+Generating 13, 12,LA_E_1568269,0,22013,0, time cost: 0.043s
+Output, LA_E_1721353, -1, -0.133447, 0.574962
+[91mNo output saved: ('13,LA_E_1721353,0,40627,0',)[0m
+Generating 14, 13,LA_E_1721353,0,40627,0, time cost: 0.055s
+Output, LA_E_1738760, -1, -0.152143, 0.572777
+[91mNo output saved: ('14,LA_E_1738760,0,53126,0',)[0m
+Generating 15, 14,LA_E_1738760,0,53126,0, time cost: 0.054s
+Output, LA_E_1799698, -1, -0.143806, 0.574309
+[91mNo output saved: ('15,LA_E_1799698,0,49218,0',)[0m
+Generating 16, 15,LA_E_1799698,0,49218,0, time cost: 0.055s
+Output, LA_E_1864973, -1, -0.068497, 0.590281
+[91mNo output saved: ('16,LA_E_1864973,0,10587,0',)[0m
+Generating 17, 16,LA_E_1864973,0,10587,0, time cost: 0.042s
+Output, LA_E_1960540, -1, -0.155577, 0.572309
+[91mNo output saved: ('17,LA_E_1960540,0,57712,0',)[0m
+Generating 18, 17,LA_E_1960540,0,57712,0, time cost: 0.054s
+Output, LA_E_1960881, -1, -0.101726, 0.579318
+[91mNo output saved: ('18,LA_E_1960881,0,25404,0',)[0m
+Generating 19, 18,LA_E_1960881,0,25404,0, time cost: 0.041s
+Output, LA_E_1991187, -1, -0.150824, 0.572610
+[91mNo output saved: ('19,LA_E_1991187,0,56027,0',)[0m
+Generating 20, 19,LA_E_1991187,0,56027,0, time cost: 0.054s
+Output, LA_E_2253628, -1, -0.090653, 0.581899
+[91mNo output saved: ('20,LA_E_2253628,0,17860,0',)[0m
+Generating 21, 20,LA_E_2253628,0,17860,0, time cost: 0.049s
+Output, LA_E_2281063, -1, -0.097690, 0.581925
+[91mNo output saved: ('21,LA_E_2281063,0,24034,0',)[0m
+Generating 22, 21,LA_E_2281063,0,24034,0, time cost: 0.041s
+Output, LA_E_2304975, -1, -0.152643, 0.572963
+[91mNo output saved: ('22,LA_E_2304975,0,59429,0',)[0m
+Generating 23, 22,LA_E_2304975,0,59429,0, time cost: 0.055s
+Output, LA_E_2305822, -1, -0.138134, 0.575175
+[91mNo output saved: ('23,LA_E_2305822,0,44322,0',)[0m
+Generating 24, 23,LA_E_2305822,0,44322,0, time cost: 0.053s
+Output, LA_E_2383877, -1, -0.144027, 0.574247
+[91mNo output saved: ('24,LA_E_2383877,0,49766,0',)[0m
+Generating 25, 24,LA_E_2383877,0,49766,0, time cost: 0.055s
+Output, LA_E_2444674, -1, -0.148635, 0.573565
+[91mNo output saved: ('25,LA_E_2444674,0,54585,0',)[0m
+Generating 26, 25,LA_E_2444674,0,54585,0, time cost: 0.054s
+Output, LA_E_2504134, -1, -0.158701, 0.571826
+[91mNo output saved: ('26,LA_E_2504134,0,63414,0',)[0m
+Generating 27, 26,LA_E_2504134,0,63414,0, time cost: 0.060s
+Output, LA_E_2507479, -1, -0.137274, 0.575240
+[91mNo output saved: ('27,LA_E_2507479,0,36740,0',)[0m
+Generating 28, 27,LA_E_2507479,0,36740,0, time cost: 0.039s
+Output, LA_E_2595198, -1, -0.143886, 0.574383
+[91mNo output saved: ('28,LA_E_2595198,0,49338,0',)[0m
+Generating 29, 28,LA_E_2595198,0,49338,0, time cost: 0.054s
+Output, LA_E_2610659, -1, -0.140185, 0.573973
+[91mNo output saved: ('29,LA_E_2610659,0,45839,0',)[0m
+Generating 30, 29,LA_E_2610659,0,45839,0, time cost: 0.056s
+Output, LA_E_2632459, -1, -0.152801, 0.573035
+[91mNo output saved: ('30,LA_E_2632459,0,59191,0',)[0m
+Generating 31, 30,LA_E_2632459,0,59191,0, time cost: 0.055s
+Output, LA_E_2746337, -1, -0.151911, 0.572816
+[91mNo output saved: ('31,LA_E_2746337,0,52573,0',)[0m
+Generating 32, 31,LA_E_2746337,0,52573,0, time cost: 0.053s
+Output, LA_E_2765957, -1, -0.140205, 0.573940
+[91mNo output saved: ('32,LA_E_2765957,0,45699,0',)[0m
+Generating 33, 32,LA_E_2765957,0,45699,0, time cost: 0.054s
+Output, LA_E_2834218, -1, -0.080926, 0.585380
+[91mNo output saved: ('33,LA_E_2834218,0,18685,0',)[0m
+Generating 34, 33,LA_E_2834218,0,18685,0, time cost: 0.032s
+Output, LA_E_2834763, -1, -0.105211, 0.579488
+[91mNo output saved: ('34,LA_E_2834763,0,22831,0',)[0m
+Generating 35, 34,LA_E_2834763,0,22831,0, time cost: 0.038s
+Output, LA_E_2950419, -1, -0.117320, 0.577679
+[91mNo output saved: ('35,LA_E_2950419,0,28237,0',)[0m
+Generating 36, 35,LA_E_2950419,0,28237,0, time cost: 0.039s
+Output, LA_E_2980184, -1, -0.101678, 0.579473
+[91mNo output saved: ('36,LA_E_2980184,0,24418,0',)[0m
+Generating 37, 36,LA_E_2980184,0,24418,0, time cost: 0.058s
+Output, LA_E_3015185, -1, -0.161574, 0.571682
+[91mNo output saved: ('37,LA_E_3015185,0,74911,0',)[0m
+Generating 38, 37,LA_E_3015185,0,74911,0, time cost: 0.085s
+Output, LA_E_3025992, -1, -0.165634, 0.571080
+[91mNo output saved: ('38,LA_E_3025992,0,84627,0',)[0m
+Generating 39, 38,LA_E_3025992,0,84627,0, time cost: 0.088s
+Output, LA_E_3050309, -1, -0.164556, 0.571170
+[91mNo output saved: ('39,LA_E_3050309,0,72959,0',)[0m
+Generating 40, 39,LA_E_3050309,0,72959,0, time cost: 0.084s
+Output, LA_E_3125115, -1, -0.141930, 0.574099
+[91mNo output saved: ('40,LA_E_3125115,0,42955,0',)[0m
+Generating 41, 40,LA_E_3125115,0,42955,0, time cost: 0.053s
+Output, LA_E_3157241, -1, -0.136878, 0.575348
+[91mNo output saved: ('41,LA_E_3157241,0,36063,0',)[0m
+Generating 42, 41,LA_E_3157241,0,36063,0, time cost: 0.036s
+Output, LA_E_3172373, -1, -0.155607, 0.572277
+[91mNo output saved: ('42,LA_E_3172373,0,58384,0',)[0m
+Generating 43, 42,LA_E_3172373,0,58384,0, time cost: 0.057s
+Output, LA_E_3201553, -1, -0.137035, 0.575197
+[91mNo output saved: ('43,LA_E_3201553,0,36954,0',)[0m
+Generating 44, 43,LA_E_3201553,0,36954,0, time cost: 0.038s
+Output, LA_E_3223638, -1, -0.135390, 0.575084
+[91mNo output saved: ('44,LA_E_3223638,0,37263,0',)[0m
+Generating 45, 44,LA_E_3223638,0,37263,0, time cost: 0.036s
+Output, LA_E_3286290, -1, -0.161678, 0.571762
+[91mNo output saved: ('45,LA_E_3286290,0,75241,0',)[0m
+Generating 46, 45,LA_E_3286290,0,75241,0, time cost: 0.086s
+Output, LA_E_3387058, -1, -0.105157, 0.579572
+[91mNo output saved: ('46,LA_E_3387058,0,22755,0',)[0m
+Generating 47, 46,LA_E_3387058,0,22755,0, time cost: 0.039s
+Output, LA_E_3408258, -1, -0.158821, 0.571874
+[91mNo output saved: ('47,LA_E_3408258,0,62979,0',)[0m
+Generating 48, 47,LA_E_3408258,0,62979,0, time cost: 0.059s
+Output, LA_E_3409135, -1, -0.152100, 0.572820
+[91mNo output saved: ('48,LA_E_3409135,0,52945,0',)[0m
+Generating 49, 48,LA_E_3409135,0,52945,0, time cost: 0.056s
+Output, LA_E_3426587, -1, -0.143922, 0.574276
+[91mNo output saved: ('49,LA_E_3426587,0,49769,0',)[0m
+Generating 50, 49,LA_E_3426587,0,49769,0, time cost: 0.054s
+Output, LA_E_3649402, -1, -0.067113, 0.586240
+[91mNo output saved: ('50,LA_E_3649402,0,15005,0',)[0m
+Generating 51, 50,LA_E_3649402,0,15005,0, time cost: 0.038s
+Output, LA_E_3743032, -1, -0.150334, 0.572574
+[91mNo output saved: ('51,LA_E_3743032,0,56317,0',)[0m
+Generating 52, 51,LA_E_3743032,0,56317,0, time cost: 0.054s
+Output, LA_E_3793695, -1, -0.165812, 0.571137
+[91mNo output saved: ('52,LA_E_3793695,0,85573,0',)[0m
+Generating 53, 52,LA_E_3793695,0,85573,0, time cost: 0.088s
+Output, LA_E_3843087, -1, -0.153014, 0.572931
+[91mNo output saved: ('53,LA_E_3843087,0,52311,0',)[0m
+Generating 54, 53,LA_E_3843087,0,52311,0, time cost: 0.055s
+Output, LA_E_3940726, -1, -0.152730, 0.573007
+[91mNo output saved: ('54,LA_E_3940726,0,59380,0',)[0m
+Generating 55, 54,LA_E_3940726,0,59380,0, time cost: 0.056s
+Output, LA_E_4025950, -1, -0.138109, 0.575227
+[91mNo output saved: ('55,LA_E_4025950,0,44430,0',)[0m
+Generating 56, 55,LA_E_4025950,0,44430,0, time cost: 0.053s
+Output, LA_E_4216918, -1, -0.165595, 0.571113
+[91mNo output saved: ('56,LA_E_4216918,0,84913,0',)[0m
+Generating 57, 56,LA_E_4216918,0,84913,0, time cost: 0.088s
+Output, LA_E_4245208, -1, -0.177532, 0.569152
+[91mNo output saved: ('57,LA_E_4245208,0,138028,0',)[0m
+Generating 58, 57,LA_E_4245208,0,138028,0, time cost: 0.152s
+Output, LA_E_4434061, -1, -0.143433, 0.574279
+[91mNo output saved: ('58,LA_E_4434061,0,42103,0',)[0m
+Generating 59, 58,LA_E_4434061,0,42103,0, time cost: 0.053s
+Output, LA_E_4457672, -1, -0.144026, 0.574376
+[91mNo output saved: ('59,LA_E_4457672,0,48981,0',)[0m
+Generating 60, 59,LA_E_4457672,0,48981,0, time cost: 0.057s
+Output, LA_E_4515346, -1, -0.145726, 0.573245
+[91mNo output saved: ('60,LA_E_4515346,0,50281,0',)[0m
+Generating 61, 60,LA_E_4515346,0,50281,0, time cost: 0.055s
+Output, LA_E_4518074, -1, -0.130839, 0.576251
+[91mNo output saved: ('61,LA_E_4518074,0,38959,0',)[0m
+Generating 62, 61,LA_E_4518074,0,38959,0, time cost: 0.055s
+Output, LA_E_4571324, -1, -0.161422, 0.571470
+[91mNo output saved: ('62,LA_E_4571324,0,68451,0',)[0m
+Generating 63, 62,LA_E_4571324,0,68451,0, time cost: 0.063s
+Output, LA_E_4602041, -1, -0.166858, 0.570467
+[91mNo output saved: ('63,LA_E_4602041,0,86667,0',)[0m
+Generating 64, 63,LA_E_4602041,0,86667,0, time cost: 0.087s
+Output, LA_E_4626652, -1, -0.124764, 0.575903
+[91mNo output saved: ('64,LA_E_4626652,0,35516,0',)[0m
+Generating 65, 64,LA_E_4626652,0,35516,0, time cost: 0.038s
+Output, LA_E_4715602, -1, -0.137155, 0.575290
+[91mNo output saved: ('65,LA_E_4715602,0,36749,0',)[0m
+Generating 66, 65,LA_E_4715602,0,36749,0, time cost: 0.037s
+Output, LA_E_4808564, -1, -0.154339, 0.572174
+[91mNo output saved: ('66,LA_E_4808564,0,61113,0',)[0m
+Generating 67, 66,LA_E_4808564,0,61113,0, time cost: 0.055s
+Output, LA_E_4856549, -1, -0.161524, 0.571524
+[91mNo output saved: ('67,LA_E_4856549,0,68289,0',)[0m
+Generating 68, 67,LA_E_4856549,0,68289,0, time cost: 0.063s
+Output, LA_E_4921798, -1, -0.147535, 0.573440
+[91mNo output saved: ('68,LA_E_4921798,0,47459,0',)[0m
+Generating 69, 68,LA_E_4921798,0,47459,0, time cost: 0.054s
+Output, LA_E_4945154, -1, -0.154288, 0.572111
+[91mNo output saved: ('69,LA_E_4945154,0,60617,0',)[0m
+Generating 70, 69,LA_E_4945154,0,60617,0, time cost: 0.056s
+Output, LA_E_4960789, -1, -0.145785, 0.573256
+[91mNo output saved: ('70,LA_E_4960789,0,50538,0',)[0m
+Generating 71, 70,LA_E_4960789,0,50538,0, time cost: 0.056s
+Output, LA_E_4966267, -1, -0.159636, 0.571904
+[91mNo output saved: ('71,LA_E_4966267,0,62130,0',)[0m
+Generating 72, 71,LA_E_4966267,0,62130,0, time cost: 0.061s
+Output, LA_E_4987734, -1, -0.101585, 0.579372
+[91mNo output saved: ('72,LA_E_4987734,0,24573,0',)[0m
+Generating 73, 72,LA_E_4987734,0,24573,0, time cost: 0.040s
+Output, LA_E_4988450, -1, -0.148707, 0.573611
+[91mNo output saved: ('73,LA_E_4988450,0,54562,0',)[0m
+Generating 74, 73,LA_E_4988450,0,54562,0, time cost: 0.054s
+Output, LA_E_5006476, -1, -0.142050, 0.574168
+[91mNo output saved: ('74,LA_E_5006476,0,43118,0',)[0m
+Generating 75, 74,LA_E_5006476,0,43118,0, time cost: 0.052s
+Output, LA_E_5083001, -1, -0.171822, 0.569973
+[91mNo output saved: ('75,LA_E_5083001,0,99631,0',)[0m
+Generating 76, 75,LA_E_5083001,0,99631,0, time cost: 0.109s
+Output, LA_E_5334235, -1, -0.105076, 0.579527
+[91mNo output saved: ('76,LA_E_5334235,0,23070,0',)[0m
+Generating 77, 76,LA_E_5334235,0,23070,0, time cost: 0.040s
+Output, LA_E_5375735, -1, -0.159709, 0.571938
+[91mNo output saved: ('77,LA_E_5375735,0,62483,0',)[0m
+Generating 78, 77,LA_E_5375735,0,62483,0, time cost: 0.061s
+Output, LA_E_5436976, -1, -0.157799, 0.571651
+[91mNo output saved: ('78,LA_E_5436976,0,66208,0',)[0m
+Generating 79, 78,LA_E_5436976,0,66208,0, time cost: 0.061s
+Output, LA_E_5535084, -1, -0.117330, 0.577694
+[91mNo output saved: ('79,LA_E_5535084,0,27202,0',)[0m
+Generating 80, 79,LA_E_5535084,0,27202,0, time cost: 0.041s
+Output, LA_E_5654574, -1, -0.159689, 0.571954
+[91mNo output saved: ('80,LA_E_5654574,0,62792,0',)[0m
+Generating 81, 80,LA_E_5654574,0,62792,0, time cost: 0.060s
+Output, LA_E_5758077, -1, -0.164778, 0.570781
+[91mNo output saved: ('81,LA_E_5758077,0,81527,0',)[0m
+Generating 82, 81,LA_E_5758077,0,81527,0, time cost: 0.101s
+Output, LA_E_6006205, -1, -0.097489, 0.581920
+[91mNo output saved: ('82,LA_E_6006205,0,23477,0',)[0m
+Generating 83, 82,LA_E_6006205,0,23477,0, time cost: 0.041s
+Output, LA_E_6047838, -1, -0.129019, 0.576369
+[91mNo output saved: ('83,LA_E_6047838,0,31437,0',)[0m
+Generating 84, 83,LA_E_6047838,0,31437,0, time cost: 0.045s
+Output, LA_E_6113649, -1, -0.133421, 0.574907
+[91mNo output saved: ('84,LA_E_6113649,0,40216,0',)[0m
+Generating 85, 84,LA_E_6113649,0,40216,0, time cost: 0.053s
+Output, LA_E_6115730, -1, -0.140232, 0.573936
+[91mNo output saved: ('85,LA_E_6115730,0,45552,0',)[0m
+Generating 86, 85,LA_E_6115730,0,45552,0, time cost: 0.053s
+Output, LA_E_6186033, -1, -0.131055, 0.576242
+[91mNo output saved: ('86,LA_E_6186033,0,39592,0',)[0m
+Generating 87, 86,LA_E_6186033,0,39592,0, time cost: 0.055s
+Output, LA_E_6280972, -1, -0.140249, 0.573907
+[91mNo output saved: ('87,LA_E_6280972,0,45045,0',)[0m
+Generating 88, 87,LA_E_6280972,0,45045,0, time cost: 0.053s
+Output, LA_E_6308513, -1, -0.169221, 0.570451
+[91mNo output saved: ('88,LA_E_6308513,0,89406,0',)[0m
+Generating 89, 88,LA_E_6308513,0,89406,0, time cost: 0.091s
+Output, LA_E_6315469, -1, -0.127350, 0.576281
+[91mNo output saved: ('89,LA_E_6315469,0,32274,0',)[0m
+Generating 90, 89,LA_E_6315469,0,32274,0, time cost: 0.036s
+Output, LA_E_6321082, -1, -0.145852, 0.573219
+[91mNo output saved: ('90,LA_E_6321082,0,50276,0',)[0m
+Generating 91, 90,LA_E_6321082,0,50276,0, time cost: 0.054s
+Output, LA_E_6363787, -1, -0.129277, 0.576410
+[91mNo output saved: ('91,LA_E_6363787,0,31676,0',)[0m
+Generating 92, 91,LA_E_6363787,0,31676,0, time cost: 0.036s
+Output, LA_E_6543651, -1, -0.147380, 0.573372
+[91mNo output saved: ('92,LA_E_6543651,0,48412,0',)[0m
+Generating 93, 92,LA_E_6543651,0,48412,0, time cost: 0.054s
+Output, LA_E_6624829, -1, -0.137188, 0.575318
+[91mNo output saved: ('93,LA_E_6624829,0,36706,0',)[0m
+Generating 94, 93,LA_E_6624829,0,36706,0, time cost: 0.038s
+Output, LA_E_6626660, -1, -0.129052, 0.576493
+[91mNo output saved: ('94,LA_E_6626660,0,30993,0',)[0m
+Generating 95, 94,LA_E_6626660,0,30993,0, time cost: 0.042s
+Output, LA_E_6656833, -1, -0.163948, 0.571160
+[91mNo output saved: ('95,LA_E_6656833,0,73560,0',)[0m
+Generating 96, 95,LA_E_6656833,0,73560,0, time cost: 0.076s
+Output, LA_E_6764440, -1, -0.130876, 0.576207
+[91mNo output saved: ('96,LA_E_6764440,0,38848,0',)[0m
+Generating 97, 96,LA_E_6764440,0,38848,0, time cost: 0.052s
+Output, LA_E_6798236, -1, -0.117333, 0.577668
+[91mNo output saved: ('97,LA_E_6798236,0,28126,0',)[0m
+Generating 98, 97,LA_E_6798236,0,28126,0, time cost: 0.039s
+Output, LA_E_7022479, -1, -0.122122, 0.577623
+[91mNo output saved: ('98,LA_E_7022479,0,34076,0',)[0m
+Generating 99, 98,LA_E_7022479,0,34076,0, time cost: 0.037s
+Output, LA_E_7110605, -1, -0.114364, 0.577460
+[91mNo output saved: ('99,LA_E_7110605,0,30342,0',)[0m
+Generating 100, 99,LA_E_7110605,0,30342,0, time cost: 0.038s
+Output, LA_E_7141198, -1, -0.150567, 0.572610
+[91mNo output saved: ('100,LA_E_7141198,0,55294,0',)[0m
+Generating 101, 100,LA_E_7141198,0,55294,0, time cost: 0.054s
+Output, LA_E_7229033, -1, -0.101592, 0.579377
+[91mNo output saved: ('101,LA_E_7229033,0,24462,0',)[0m
+Generating 102, 101,LA_E_7229033,0,24462,0, time cost: 0.040s
+Output, LA_E_7475469, -1, -0.117299, 0.577671
+[91mNo output saved: ('102,LA_E_7475469,0,27917,0',)[0m
+Generating 103, 102,LA_E_7475469,0,27917,0, time cost: 0.042s
+Output, LA_E_7525474, -1, -0.148709, 0.573621
+[91mNo output saved: ('103,LA_E_7525474,0,46328,0',)[0m
+Generating 104, 103,LA_E_7525474,0,46328,0, time cost: 0.056s
+Output, LA_E_7527756, -1, -0.086255, 0.581956
+[91mNo output saved: ('104,LA_E_7527756,0,20260,0',)[0m
+Generating 105, 104,LA_E_7527756,0,20260,0, time cost: 0.030s
+Output, LA_E_7583177, -1, -0.124728, 0.576006
+[91mNo output saved: ('105,LA_E_7583177,0,35449,0',)[0m
+Generating 106, 105,LA_E_7583177,0,35449,0, time cost: 0.036s
+Output, LA_E_7657930, -1, -0.138080, 0.575222
+[91mNo output saved: ('106,LA_E_7657930,0,44194,0',)[0m
+Generating 107, 106,LA_E_7657930,0,44194,0, time cost: 0.054s
+Output, LA_E_7697817, -1, -0.119622, 0.577870
+[91mNo output saved: ('107,LA_E_7697817,0,26890,0',)[0m
+Generating 108, 107,LA_E_7697817,0,26890,0, time cost: 0.041s
+Output, LA_E_7707955, -1, -0.091740, 0.582690
+[91mNo output saved: ('108,LA_E_7707955,0,15482,0',)[0m
+Generating 109, 108,LA_E_7707955,0,15482,0, time cost: 0.031s
+Output, LA_E_7873484, -1, -0.171298, 0.569984
+[91mNo output saved: ('109,LA_E_7873484,0,102248,0',)[0m
+Generating 110, 109,LA_E_7873484,0,102248,0, time cost: 0.106s
+Output, LA_E_7879339, -1, -0.105160, 0.579506
+[91mNo output saved: ('110,LA_E_7879339,0,22822,0',)[0m
+Generating 111, 110,LA_E_7879339,0,22822,0, time cost: 0.036s
+Output, LA_E_7886695, -1, -0.097453, 0.582002
+[91mNo output saved: ('111,LA_E_7886695,0,23730,0',)[0m
+Generating 112, 111,LA_E_7886695,0,23730,0, time cost: 0.036s
+Output, LA_E_7903925, -1, -0.130943, 0.576183
+[91mNo output saved: ('112,LA_E_7903925,0,39556,0',)[0m
+Generating 113, 112,LA_E_7903925,0,39556,0, time cost: 0.053s
+Output, LA_E_7943772, -1, -0.105116, 0.579617
+[91mNo output saved: ('113,LA_E_7943772,0,22121,0',)[0m
+Generating 114, 113,LA_E_7943772,0,22121,0, time cost: 0.038s
+Output, LA_E_7982452, -1, -0.122087, 0.577680
+[91mNo output saved: ('114,LA_E_7982452,0,34342,0',)[0m
+Generating 115, 114,LA_E_7982452,0,34342,0, time cost: 0.037s
+Output, LA_E_8116931, -1, -0.066982, 0.586355
+[91mNo output saved: ('115,LA_E_8116931,0,14464,0',)[0m
+Generating 116, 115,LA_E_8116931,0,14464,0, time cost: 0.029s
+Output, LA_E_8154644, -1, -0.177380, 0.569261
+[91mNo output saved: ('116,LA_E_8154644,0,130149,0',)[0m
+Generating 117, 116,LA_E_8154644,0,130149,0, time cost: 0.143s
+Output, LA_E_8194735, -1, -0.107452, 0.579842
+[91mNo output saved: ('117,LA_E_8194735,0,20840,0',)[0m
+Generating 118, 117,LA_E_8194735,0,20840,0, time cost: 0.033s
+Output, LA_E_8200652, -1, -0.127403, 0.576255
+[91mNo output saved: ('118,LA_E_8200652,0,32362,0',)[0m
+Generating 119, 118,LA_E_8200652,0,32362,0, time cost: 0.035s
+Output, LA_E_8275122, -1, -0.140113, 0.573907
+[91mNo output saved: ('119,LA_E_8275122,0,45018,0',)[0m
+Generating 120, 119,LA_E_8275122,0,45018,0, time cost: 0.053s
+Output, LA_E_8293918, -1, -0.176009, 0.569740
+[91mNo output saved: ('120,LA_E_8293918,0,113600,0',)[0m
+Generating 121, 120,LA_E_8293918,0,113600,0, time cost: 0.107s
+Output, LA_E_8383708, -1, -0.156142, 0.572547
+[91mNo output saved: ('121,LA_E_8383708,0,64104,0',)[0m
+Generating 122, 121,LA_E_8383708,0,64104,0, time cost: 0.061s
+Output, LA_E_8429694, -1, -0.129331, 0.576404
+[91mNo output saved: ('122,LA_E_8429694,0,32019,0',)[0m
+Generating 123, 122,LA_E_8429694,0,32019,0, time cost: 0.039s
+Output, LA_E_8512902, -1, -0.145677, 0.573213
+[91mNo output saved: ('123,LA_E_8512902,0,51122,0',)[0m
+Generating 124, 123,LA_E_8512902,0,51122,0, time cost: 0.053s
+Output, LA_E_8584520, -1, -0.160090, 0.571909
+[91mNo output saved: ('124,LA_E_8584520,0,62696,0',)[0m
+Generating 125, 124,LA_E_8584520,0,62696,0, time cost: 0.061s
+Output, LA_E_8627244, -1, -0.124946, 0.575966
+[91mNo output saved: ('125,LA_E_8627244,0,35749,0',)[0m
+Generating 126, 125,LA_E_8627244,0,35749,0, time cost: 0.037s
+Output, LA_E_8688127, -1, -0.148687, 0.573653
+[91mNo output saved: ('126,LA_E_8688127,0,54807,0',)[0m
+Generating 127, 126,LA_E_8688127,0,54807,0, time cost: 0.054s
+Output, LA_E_8814997, -1, -0.153223, 0.572931
+[91mNo output saved: ('127,LA_E_8814997,0,52542,0',)[0m
+Generating 128, 127,LA_E_8814997,0,52542,0, time cost: 0.056s
+Output, LA_E_8835086, -1, -0.101612, 0.579441
+[91mNo output saved: ('128,LA_E_8835086,0,24607,0',)[0m
+Generating 129, 128,LA_E_8835086,0,24607,0, time cost: 0.034s
+Output, LA_E_8900402, -1, -0.148851, 0.573700
+[91mNo output saved: ('129,LA_E_8900402,0,54148,0',)[0m
+Generating 130, 129,LA_E_8900402,0,54148,0, time cost: 0.054s
+Output, LA_E_8906064, -1, -0.164695, 0.571235
+[91mNo output saved: ('130,LA_E_8906064,0,72409,0',)[0m
+Generating 131, 130,LA_E_8906064,0,72409,0, time cost: 0.069s
+Output, LA_E_8958904, -1, -0.165528, 0.571074
+[91mNo output saved: ('131,LA_E_8958904,0,85836,0',)[0m
+Generating 132, 131,LA_E_8958904,0,85836,0, time cost: 0.088s
+Output, LA_E_9034225, -1, -0.136932, 0.575225
+[91mNo output saved: ('132,LA_E_9034225,0,36385,0',)[0m
+Generating 133, 132,LA_E_9034225,0,36385,0, time cost: 0.039s
+Output, LA_E_9061635, -1, -0.163832, 0.571180
+[91mNo output saved: ('133,LA_E_9061635,0,74010,0',)[0m
+Generating 134, 133,LA_E_9061635,0,74010,0, time cost: 0.077s
+Output, LA_E_9162748, -1, -0.090578, 0.581894
+[91mNo output saved: ('134,LA_E_9162748,0,17754,0',)[0m
+Generating 135, 134,LA_E_9162748,0,17754,0, time cost: 0.029s
+Output, LA_E_9381930, -1, -0.144169, 0.574319
+[91mNo output saved: ('135,LA_E_9381930,0,49736,0',)[0m
+Generating 136, 135,LA_E_9381930,0,49736,0, time cost: 0.055s
+Output, LA_E_9440539, -1, -0.154233, 0.572151
+[91mNo output saved: ('136,LA_E_9440539,0,61185,0',)[0m
+Generating 137, 136,LA_E_9440539,0,61185,0, time cost: 0.055s
+Output, LA_E_9480299, -1, -0.124843, 0.575937
+[91mNo output saved: ('137,LA_E_9480299,0,35504,0',)[0m
+Generating 138, 137,LA_E_9480299,0,35504,0, time cost: 0.036s
+Output, LA_E_9538836, -1, -0.148842, 0.573523
+[91mNo output saved: ('138,LA_E_9538836,0,54668,0',)[0m
+Generating 139, 138,LA_E_9538836,0,54668,0, time cost: 0.054s
+Output, LA_E_9610041, -1, -0.148547, 0.573583
+[91mNo output saved: ('139,LA_E_9610041,0,46254,0',)[0m
+Generating 140, 139,LA_E_9610041,0,46254,0, time cost: 0.053s
+Output, LA_E_9631461, -1, -0.119535, 0.577867
+[91mNo output saved: ('140,LA_E_9631461,0,26917,0',)[0m
+Generating 141, 140,LA_E_9631461,0,26917,0, time cost: 0.037s
+Output, LA_E_9690292, -1, -0.105248, 0.579546
+[91mNo output saved: ('141,LA_E_9690292,0,22447,0',)[0m
+Generating 142, 141,LA_E_9690292,0,22447,0, time cost: 0.039s
+Output, LA_E_9704175, -1, -0.111159, 0.579476
+[91mNo output saved: ('142,LA_E_9704175,0,29324,0',)[0m
+Generating 143, 142,LA_E_9704175,0,29324,0, time cost: 0.041s
+Output, LA_E_9753859, -1, -0.145972, 0.573175
+[91mNo output saved: ('143,LA_E_9753859,0,51149,0',)[0m
+Generating 144, 143,LA_E_9753859,0,51149,0, time cost: 0.055s
+Output, LA_E_9754557, -1, -0.124808, 0.575941
+[91mNo output saved: ('144,LA_E_9754557,0,34849,0',)[0m
+Generating 145, 144,LA_E_9754557,0,34849,0, time cost: 0.038s
+Output, LA_E_9766966, -1, -0.135533, 0.575071
+[91mNo output saved: ('145,LA_E_9766966,0,38320,0',)[0m
+Generating 146, 145,LA_E_9766966,0,38320,0, time cost: 0.038s
+Output, LA_E_9828001, -1, -0.143353, 0.574262
+[91mNo output saved: ('146,LA_E_9828001,0,42231,0',)[0m
+Generating 147, 146,LA_E_9828001,0,42231,0, time cost: 0.055s
+Output, LA_E_9866040, -1, -0.159109, 0.572073
+[91mNo output saved: ('147,LA_E_9866040,0,70252,0',)[0m
+Generating 148, 147,LA_E_9866040,0,70252,0, time cost: 0.065s
+Output, LA_E_9879711, -1, -0.135541, 0.575144
+[91mNo output saved: ('148,LA_E_9879711,0,37350,0',)[0m
+Generating 149, 148,LA_E_9879711,0,37350,0, time cost: 0.040s
+Output, LA_E_9933162, -1, -0.138095, 0.575177
+[91mNo output saved: ('149,LA_E_9933162,0,44238,0',)[0m
+Generating 150, 149,LA_E_9933162,0,44238,0, time cost: 0.053s
+[94mInference time cost: 13.804706s[0m
+[94mOutput data has been saved to ./output[0m
