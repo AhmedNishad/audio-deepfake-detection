@@ -20,13 +20,24 @@ model_dir=$3
 log_train_name=log_train
 log_err_name=log_train_err
 
+#####
+# check
+if [ ! -d ${PRJDIR} ];
+then
+    mkdir -p ${PRJDIR}
+fi
+
+
 ####
 # step1. copy files & enter the folder
 if [ -d ${model_dir} ];
 then
     cp ./main.py ${model_dir}
+	cp ./server.py ${model_dir}
+	cp ./calculate_eer.py ${model_dir}
     cp ./${CONFIG}.py ${model_dir}
     cp ${model_dir}/../../model.py ${model_dir}
+	cp ${model_dir}/../protocol.txt ${model_dir}
     cd ${model_dir}
 else
     echo "Cannot find ${model_dir}"

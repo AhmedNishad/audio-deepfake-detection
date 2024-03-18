@@ -1,0 +1,17 @@
+-- install anaconda
+
+-- clone repo and cd in
+git clone https://github.com/AhmedNishad/audio-deepfake-detection
+
+bash env-fs-install.sh
+
+-- cd into project/
+
+source ../env-fs.sh
+
+bash 00_demo.sh model-WavLM config_train_toyset 04
+
+-- download dataset into DATA
+
+-- unzip the folder into DATA/asvspoof2019_LA
+

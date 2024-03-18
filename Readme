@@ -8,7 +8,7 @@ cd /d/Uni/FYP/Implementation/Code/SSL/project
 
 source ../env-fs.sh
 
-bash 00_demo.sh model-W2V-Large2-fix-LLGF config_train_toyset 01
+bash 00_demo.sh model-WavLM config_train_toyset 04
 
 bash 01_train.sh 01 config_train_asvspoof2019 model-WavLM/config_train_asvspoof2019/01
 
