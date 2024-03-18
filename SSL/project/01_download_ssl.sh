@@ -8,10 +8,10 @@ TAR=SSL_pretrained
 
 # XLSR-53 Large
 # W2V-XLSR 
-if [ ! -e ./${TAR}/xlsr_53_56k.pt ]; 
-then
-    wget -q --show-progress -O ./${TAR}/xlsr_53_56k.pt https://dl.fbaipublicfiles.com/fairseq/wav2vec/xlsr_53_56k.pt 
-fi
+# if [ ! -e ./${TAR}/xlsr_53_56k.pt ]; 
+# then
+#     wget -q --show-progress -O ./${TAR}/xlsr_53_56k.pt https://dl.fbaipublicfiles.com/fairseq/wav2vec/xlsr_53_56k.pt 
+# fi
 
 # Wav2Vec 2.0 Base No finetuning
 # W2V-small
@@ -29,14 +29,14 @@ fi
 
 # Wav2Vec 2.0 Large No finetuning
 # W2V-Large1
-if [ ! -e ./${TAR}/libri960_big.pt ];
-then
-    wget -q --show-progress -O ./${TAR}/libri960_big.pt https://dl.fbaipublicfiles.com/fairseq/wav2vec/libri960_big.pt
-fi
+# if [ ! -e ./${TAR}/libri960_big.pt ];
+# then
+#     wget -q --show-progress -O ./${TAR}/libri960_big.pt https://dl.fbaipublicfiles.com/fairseq/wav2vec/libri960_big.pt
+# fi
 
 # HuBERT Extra Large (~1B params)	Libri-Light 60k hr	No finetuning (Pretrained Model)
 # Hubert
-if [ ! -e ./${TAR}/hubert_xtralarge_ll60k.pt ];
-then
-    wget -q --show-progress -O ./${TAR}/hubert_xtralarge_ll60k.pt https://dl.fbaipublicfiles.com/hubert/hubert_xtralarge_ll60k.pt
-fi
+# if [ ! -e ./${TAR}/hubert_xtralarge_ll60k.pt ];
+# then
+#     wget -q --show-progress -O ./${TAR}/hubert_xtralarge_ll60k.pt https://dl.fbaipublicfiles.com/hubert/hubert_xtralarge_ll60k.pt
+# fi

@@ -13,5 +13,5 @@ fi
 
 # when running in ./projects/*/*, add this top directory
 # to python path
-export PYTHONPATH=/d/Uni/FYP/Implementation/Code/SSL
+export PYTHONPATH=$PWD/../../../:$PYTHONPATH
 
