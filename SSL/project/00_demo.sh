@@ -66,6 +66,13 @@ bash ${condafile} || exit 1;
 # load env.sh. It must be loaded inside a sub-folder $PWD/../../../env.sh
 # otherwise, please follow env.sh and manually load the conda environment and 
 # add PYTHONPATH
+
+if [ ! -d DATA ];
+then
+    echo -e "\nCreating data folder since not exist"
+    mkdir DATA
+fi
+
 cd DATA 
 source ${envfile} || exit 1;
 cd ../
@@ -85,7 +92,7 @@ fi
 if [ ! -d asvspoof2019_LA ];
 then
     echo -e "\nCopy place holder for ASVspoof 2019 LA"
-    cp -rP ../../03-asvspoof-mega/DATA/asvspoof2019_LA/ ./
+    cp -rP ../sample/DATA/asvspoof2019_LA/ ./
 fi
 cd ..
 
@@ -98,7 +105,6 @@ fi
 
 echo -e "\nDowloading pre-trained SSL models"
 bash 01_download_ssl.sh
-
 
 #####
 # step 3 training
