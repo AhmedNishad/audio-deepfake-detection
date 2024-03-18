@@ -92,7 +92,7 @@ fi
 if [ ! -d asvspoof2019_LA ];
 then
     echo -e "\nCopy place holder for ASVspoof 2019 LA"
-    cp -rP ../sample/DATA/asvspoof2019_LA/ ./
+    cp -rP ../../sample/DATA/asvspoof2019_LA/ ./
 fi
 cd ..
 
