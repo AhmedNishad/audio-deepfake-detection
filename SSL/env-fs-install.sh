@@ -23,11 +23,11 @@ if [ $retVal -ne 0 ]; then
     
     # git clone fairseq
     #  fairseq 0.10.2 on pip does not work
-    git clone https://github.com/pytorch/fairseq
-    cd fairseq
+    # git clone https://github.com/pytorch/fairseq
+    # cd fairseq
 
-    #  checkout this specific commit. Latest commit does not work
-    git checkout 862efab86f649c04ea31545ce28d13c59560113d
+    # #  checkout this specific commit. Latest commit does not work
+    # git checkout 862efab86f649c04ea31545ce28d13c59560113d
     pip install --editable ./
 
     # install pandas
