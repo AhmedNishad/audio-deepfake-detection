@@ -73,6 +73,12 @@ then
     mkdir DATA
 fi
 
+if [ ! -d SSL_pretrained ];
+then
+    echo -e "\nCreating SSL_pretrained folder since not exist"
+    mkdir SSL_pretrained
+fi
+
 cd DATA 
 source ${envfile} || exit 1;
 cd ../
