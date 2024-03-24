@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request, send_file
+from flask_cors import CORS, cross_origin
 from pymongo import MongoClient
 from bson import json_util, ObjectId
 import json
@@ -7,28 +8,20 @@ import speech_recognition as sr
 from datetime import datetime
 import sys
 
-# Add the relative path to the parent directory of the model module to the system path
-model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'model-WavLM'))
-sys.path.append(model_path)
-
 # Now you can import the SSLModel class from the model module
-from model import SSLModel
-
-import torch
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Configuration
 MONGO_URI = 'mongodb://localhost:27017/'
-RECORDINGS_DIR = r'D:\Uni\FYP\Implementation\Code\SSL\API\recordings'
+RECORDINGS_DIR = os.path.abspath(os.path.dirname(__file__)) #r'D:\Uni\FYP\Implementation\Code\SSL\API\recordings'
 
 # Initialize MongoDB client
 client = MongoClient(MONGO_URI)
 db = client.flask_db
-todos = db.todos
-
-ssl_orig_output_dim = 1024  # Assuming this is the dimension of your model's output
-ssl_model = SSLModel.load_model('trained_network.pt', ssl_orig_output_dim)
+deepfakes = db.deepfakes
 
 # model = ssl_model()
 # model.load_state_dict(torch.load('trained_network.pt'))
@@ -51,7 +44,8 @@ def save_audio_file(file):
         return None
     today = datetime.today()
     new_file_name = f"{today.timestamp()}{file.filename}"
-    file_path = os.path.join(RECORDINGS_DIR, new_file_name)
+    file_path = os.path.join(RECORDINGS_DIR, 'recordings', new_file_name)
+    print(file_path)
     file.save(file_path)
     return new_file_name
 
@@ -59,32 +53,36 @@ def parse_mongo_data(data):
     return json.loads(json_util.dumps(data))
 
 @app.route('/predict', methods=['POST'])
+@cross_origin()
 def predict():
     is_deepfake = True  # Placeholder for model prediction
     file = request.files['file']
     new_file_name = save_audio_file(file)
     if not new_file_name:
         return jsonify({'error': 'No selected file'})
-    transcript = transcribe_audio(os.path.join(RECORDINGS_DIR, new_file_name))
+    transcript = transcribe_audio(os.path.join(RECORDINGS_DIR, 'recordings', new_file_name))
+    # todo - add data for recording length, and any other metadata we can glean
     inserted_id = ""
     if is_deepfake:
-        insert_result = todos.insert_one({'publicFigure': '', 'transcript': transcript, 'createdOn': datetime.today(), 'fileName': new_file_name})
+        insert_result = deepfakes.insert_one({'publicFigure': '', 'transcript': transcript, 'createdOn': datetime.today(), 'fileName': new_file_name})
         inserted_id = insert_result.inserted_id
     return jsonify(parse_mongo_data({'_id': inserted_id, 'isDeepfake': is_deepfake}))
 
 
 @app.route('/attribute', methods=['POST'])
+@cross_origin()
 def attribute():
     resultId = request.json['id']
     publicFigure = request.json['publicFigure']
-    result = db.todos.update_one({'_id': ObjectId(resultId)}, {"$set": {'publicFigure': publicFigure}})
+    result = db.deepfakes.update_one({'_id': ObjectId(resultId)}, {"$set": {'publicFigure': publicFigure}})
 
     return result.raw_result
 
 @app.route('/search', methods=['GET'])
+@cross_origin()
 def search():
     text = request.args['text']
-    result = db.todos.find({"$or": [
+    result = db.deepfakes.find({"$or": [
     { 'publicFigure': { '$regex': text, '$options': 'i' } },
     { 'transcript': { '$regex': text, '$options': 'i' } }
     ]})
@@ -92,17 +90,19 @@ def search():
     return jsonify(parse_mongo_data(result))
 
 @app.route('/detail', methods=['GET'])
+@cross_origin()
 def detail():
     resultId = request.args['id']
-    result = db.todos.find({ '_id' : ObjectId(resultId) })
+    result = db.deepfakes.find({ '_id' : ObjectId(resultId) })
     print(result)
     return jsonify(parse_mongo_data(result))
 
 @app.route('/stream-audio/')
+@cross_origin()
 def streamAudio():
     fileName = request.args['fileName']
     try:
-        return send_file(os.path.join(RECORDINGS_DIR, fileName))
+        return send_file(os.path.join(RECORDINGS_DIR, 'recordings', fileName))
     except Exception as e:
         return str(e)
 

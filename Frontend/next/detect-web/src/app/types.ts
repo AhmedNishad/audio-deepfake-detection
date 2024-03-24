@@ -1,11 +1,20 @@
 export interface DetectionResult{
-    _id: string;
+    _id: MongoId;
     publicFigure?: string;
     transcript: string;
-    createdOn?: Date;
+    createdOn?: MongoDate;
+    fileName: string;
 }
 
 export interface DetectionResponse{
     _id: string;
     isDeepfake: boolean;
+}
+
+export interface MongoDate{
+    $date: Date;
+}
+
+export interface MongoId{
+    $oid: string;
 }
