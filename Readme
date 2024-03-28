@@ -8,22 +8,25 @@ cd /d/Uni/FYP/Implementation/Code/SSL/project
 
 source ../env-fs.sh
 
-bash 00_demo.sh model-WavLM config_train_toyset 01
+bash 00_demo.sh model-HuBERT-XL-LLGF config_train_toyset 01
 
-bash 01_train.sh 01 config_train_asvspoof2019 model-WavLM/config_train_asvspoof2019/01
+bash 01_train.sh 01 config_train_asvspoof2019 model-WavLM-LLGF/config_train_asvspoof2019/01
+
+bash 01_train.sh 01 config_train_asvspoof2021 model-W2V-Large-LLGF/config_train_asvspoof2021/01
 
 bash 01_train.sh 02 config_train_toyset model-WavLM/config_train_toyset/02
 
 bash 01_train.sh 03 config_train_toyset model-WavLM/config_train_toyset/03
 
-bash 02_score.sh /d/Uni/FYP/Implementation/Code/SSL/project/DATA/toy_example/eval toy_eval_set /d/Uni/FYP/Implementation/Code/SSL/project/model-WavLM/config_train_toyset/03 /d/Uni/FYP/Implementation/Code/SSL/project/model-WavLM/config_train_toyset/03/trained_network.pt trained
+bash 02_score.sh /d/Uni/FYP/Implementation/Code/SSL/project/DATA/asvspoof2021/eval asvspoof2021_eval_set /d/Uni/FYP/Implementation/Code/SSL/project/model-LFCC-LLGF/config_train_asvspoof2021/01 /d/Uni/FYP/Implementation/Code/SSL/project/model-LFCC-LLGF/config_train_asvspoof2021/01/trained_network.pt trained
 
 bash single_sample.sh /d/Uni/FYP/Implementation/Code/SSL/project/DATA/toy_example/eval toy_eval_set /d/Uni/FYP/Implementation/Code/SSL/project/model-WavLM/config_train_toyset/03 /d/Uni/FYP/Implementation/Code/SSL/project/model-WavLM/config_train_toyset/03/trained_network.pt trained
 
-Figure out how to interpret the results
+Let's try and remove everything that'll give away the true origin of all this
+Find an analyzer and walk through and remove everything that's not strictly necessary (sandbox etc)
+Remove comments and too much documentation. Leave shit somewhat sparse
+
 Walk through code figure out what's doing what
-Prepare data for actual learning to happen
-Estimate time require
 As it trains write basic flask application to detect the audio using the current model
 Figure out how you can add WAVLM
 

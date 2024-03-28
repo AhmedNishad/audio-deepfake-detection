@@ -35,6 +35,7 @@ then
     cp ./main.py ${model_dir}
 	cp ./server.py ${model_dir}
 	cp ./calculate_eer.py ${model_dir}
+	cp ./calculate_eer_v2.py ${model_dir}
     cp ./${CONFIG}.py ${model_dir}
     cp ${model_dir}/../../model.py ${model_dir}
 	cp ${model_dir}/../protocol.txt ${model_dir}
@@ -68,7 +69,7 @@ else
 	    --num-workers 3 --epochs 10 
 	    --no-best-epochs 10 --batch-size 64 
 	    --sampler block_shuffle_by_length --lr-decay-factor 0.5 
-	    --lr-scheduler-type 1 --lr 0.0003 
+	    --lr-scheduler-type 1 --lr 0.005 
 	    --not-save-each-epoch --seed ${SEED} 
 	    --module-config ${CONFIG}  
 	    >${log_train_name} 2>${log_err_name}"

@@ -79,7 +79,7 @@ if [ ${TEMPVAL} -gt 0 ];
 then
     echo -e "\n${RED}Score has been written to $PWD/${log_name}_score.txt${NC}"
     # Calculate EER
-    python calculate_eer.py ${log_name}_score.txt 
+    python calculate_eer_v2.py ${log_name}_score.txt 
 else
     echo -e "\n${RED}Failed. Please check $PWD/${log_name}_err and $PWD/${log_name}${NC}"
 fi

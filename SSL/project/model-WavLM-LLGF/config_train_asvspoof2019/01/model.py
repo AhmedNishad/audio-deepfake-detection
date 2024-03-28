@@ -61,7 +61,7 @@ class SSLModel():
         return ssl_model
 
 # not good way, but the path is fixed
-ssl_path = os.path.dirname(__file__) + '/../../../SSL_pretrained/w2v_large_lv_fsh_swbd_cv.pt'
+ssl_path = os.path.dirname(__file__) + '/../../../SSL_pretrained/WavLM-Large.pt'
 # This model produces 1024 output feature dimensions (per frame)
 ssl_orig_output_dim = 1024
 # SSL model is declared as a global var since it is fixed

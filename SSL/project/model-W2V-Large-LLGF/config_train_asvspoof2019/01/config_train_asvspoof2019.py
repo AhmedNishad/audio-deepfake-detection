@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-config.py for project-NN-pytorch/projects
+config.py  
 
 Usage: 
  For training, change Configuration for training stage
@@ -20,7 +20,7 @@ trn_set_name = ['asvspoof2019_trn']
 val_set_name = ['asvspoof2019_val']
 
 # for convenience
-tmp = os.path.dirname(__file__) + '/../../../DATA/asvspoof2019_LA'
+tmp = os.path.dirname(__file__) + '/../../../DATA/asvspoof2019'
 
 # File lists (text file, one data name per line, without name extension)
 # trin_file_list: list of files for training set

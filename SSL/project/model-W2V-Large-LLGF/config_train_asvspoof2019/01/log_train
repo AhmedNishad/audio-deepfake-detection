@@ -1,38 +1,38 @@
 [94m-------------------------------------------------[0m
-[94m---  Start program 2024-03-13 11:46:48.578557 ---[0m
+[94m---  Start program 2024-03-28 12:48:44.938192 ---[0m
 [94m-------------------------------------------------[0m
 [94mLoad module: config_train_asvspoof2019[0m
 [94mLoad module: model[0m
 [94m--------------------------------------------------------------------[0m
-[94m---  Loading dataset asvspoof2019_trn 2024-03-13 11:47:21.065622 ---[0m
+[94m---  Loading dataset asvspoof2019_trn 2024-03-28 12:49:31.205290 ---[0m
 [94m--------------------------------------------------------------------[0m
 [94mSkip scanning directories[0m
 [94mRead sequence info: ./asvspoof2019_trn_utt_length.dic[0m
 [94m--------------------------------------------------------------------[0m
-[94m---  Loading dataset asvspoof2019_val 2024-03-13 11:47:21.720624 ---[0m
+[94m---  Loading dataset asvspoof2019_val 2024-03-28 12:49:31.417338 ---[0m
 [94m--------------------------------------------------------------------[0m
 [94mSkip scanning directories[0m
 [94mRead sequence info: ./asvspoof2019_val_utt_length.dic[0m
 [94m--------------------------------------------------------[0m
-[94m---  Start model training 2024-03-13 11:47:25.582754 ---[0m
+[94m---  Start model training 2024-03-28 12:49:35.374410 ---[0m
 [94m--------------------------------------------------------[0m
 Optimizer:
   Type: Adam 
-  Learing rate: 0.000300
+  Learing rate: 0.005000
   Epochs: 10
   No-best-epochs: 10
   LR scheduler, StepLR [gamma 0.500000, step 5]
 Merge datasets by: concatenate
 Dataset asvspoof2019_trn:
-  Time steps: 3821498657 
+  Time steps: 563559241 
   Truncate length: 64000
-  Data sequence num: 69429
+  Data sequence num: 10310
   Maximum sequence length: 64000
-  Minimum sequence length: 8002
+  Minimum sequence length: 8030
   Shorter sequences are ignored
   Inputs
     Dirs:
-        D:\Uni\FYP\Implementation\Code\SSL\project\model-WavLM\config_train_asvspoof2019\01/../../../DATA/asvspoof2019_LA/train_dev
+        D:\Uni\FYP\Implementation\Code\SSL\project\model-W2V-Large-LLGF\config_train_asvspoof2019\01/../../../DATA/asvspoof2019/train_dev
     Exts:['.wav']
     Dims:[1]
     Reso:[1]
@@ -46,15 +46,15 @@ Dataset asvspoof2019_trn:
 {'batch_size': 64, 'shuffle': True, 'num_workers': 3, 'sampler': 'block_shuffle_by_length'}
 Merge datasets by: concatenate
 Dataset asvspoof2019_val:
-  Time steps: 3798037360 
+  Time steps: 295785154 
   Truncate length: 64000
-  Data sequence num: 68842
+  Data sequence num: 5364
   Maximum sequence length: 64000
-  Minimum sequence length: 8008
+  Minimum sequence length: 8906
   Shorter sequences are ignored
   Inputs
     Dirs:
-        D:\Uni\FYP\Implementation\Code\SSL\project\model-WavLM\config_train_asvspoof2019\01/../../../DATA/asvspoof2019_LA/train_dev
+        D:\Uni\FYP\Implementation\Code\SSL\project\model-W2V-Large-LLGF\config_train_asvspoof2019\01/../../../DATA/asvspoof2019/train_dev
     Exts:['.wav']
     Dims:[1]
     Reso:[1]
@@ -143,4 +143,16 @@ Parameter number: 1079746
 --------------------------------------------------------------
   Epoch |  Duration(s) |   Train loss |     Dev loss |  Best
 --------------------------------------------------------------
-      0 |      12758.3 |       0.3354 |       0.3301 |   yes
+      0 |       1158.9 |       0.8112 |       0.1382 |   yes
+      1 |       1168.1 |       0.9854 |       0.0005 |   yes
+      2 |       1161.0 |       1.2265 |       0.0018 |    no
+      3 |       1171.7 |       1.0195 |       0.1167 |    no
+      4 |       1168.7 |       0.9170 |       0.0182 |    no  LR -> 2.50e-03 
+      5 |       1171.5 |       0.7859 |       0.2346 |    no  LR -> 2.50e-03 
+      6 |       1166.6 |       0.6537 |       0.7226 |    no  LR -> 2.50e-03 
+      7 |       1175.7 |       0.6648 |       0.4708 |    no  LR -> 2.50e-03 
+      8 |       1173.2 |       0.6756 |       0.5269 |    no  LR -> 2.50e-03 
+      9 |       1165.1 |       0.7218 |       0.0518 |    no  LR -> 1.25e-03 
+--------------------------------------------------------------
+[94mTraining finished[0m
+[94mModel is saved to[0m[94m./trained_network.pt[0m

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-main.py for project-NN-pytorch/projects
+main.py  
 
 The training/inference process wrapper.
 Dataset API is replaced with NII_MergeDataSetLoader. 

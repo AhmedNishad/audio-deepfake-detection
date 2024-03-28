@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-config.py for project-NN-pytorch/projects
+config.py  
 
 Usage: 
  For training, change Configuration for training stage

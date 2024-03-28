@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-main.py for project-NN-pytorch/projects
+main.py  
 
 The training/inference process wrapper for active learning.
 The base is on main_mergedataset.py

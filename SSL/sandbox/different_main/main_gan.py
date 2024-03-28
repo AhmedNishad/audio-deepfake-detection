@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-main.py for project-NN-pytorch/projects
+main.py  
 
 The default training/inference process wrapper
 Requires model.py and config.py
