@@ -20,7 +20,7 @@ const SearchPage = () => {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-Api-Key': 'ZzzuCKOo/zf/F3GMXgXz1w==UNVkljCUHfJ48ZdU'
+                        'X-Api-Key': ''
                     },
                 });
                 const data = await response.json();

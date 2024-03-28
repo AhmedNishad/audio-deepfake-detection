@@ -1,0 +1,19 @@
+[94m-------------------------------------------------[0m
+[94m---  Start program 2024-03-10 17:38:39.563278 ---[0m
+[94m-------------------------------------------------[0m
+[94mLoad module: config_train_asvspoof2019[0m
+[94mLoad module: model[0m
+[94m--------------------------------------------------------------------[0m
+[94m---  Loading dataset asvspoof2019_trn 2024-03-10 17:39:22.567431 ---[0m
+[94m--------------------------------------------------------------------[0m
+[91mPossible error when scanning:[0m
+[91m D:\Uni\FYP\Implementation\Code\SSL\project\model-WavLM\config_train_asvspoof2019\02/../../../DATA/asvspoof2019_LA/train_dev for .wav[0m
+[91mSome file names to be scanned:[0m
+[91m LA_0079 LA_T_1138215 - - bonafide LA_0079 LA_T_1271820 - - bonafide LA_0079 LA_T_1272637 - - bonafide LA_0079 LA_T_1276960 - - bonafide LA_0079 LA_T_1341447 - - bonafide LA_0079 LA_T_1363611 - - bonafide LA_0079 LA_T_1596451 - - bonafide LA_0079 LA_T_1608170 - - bonafide LA_0079 LA_T_1684951 - - bonafide LA_0079 LA_T_1699801 - - bonafide[0m
+[91m
+No input features found after scanning[0m
+[91mPlease check ['D:\\Uni\\FYP\\Implementation\\Code\\SSL\\project\\model-WavLM\\config_train_asvspoof2019\\02/../../../DATA/asvspoof2019_LA/train_dev'][0m
+[91mThey should contain all files in file list[0m
+[91mPlease also check filename extentions ['.wav'][0m
+[91mThey should be correctly specified[0m
+[91mError: Failed to read input features[0m

@@ -14,6 +14,6 @@ fi
 # when running in ./projects/*/*, add this top directory
 # to python path
 #export PYTHONPATH=$PWD/../../../:$PYTHONPATH
-export PYTHONPATH=/home/ubuntu/audio-deepfake-detection/SSL
+#export PYTHONPATH=/home/ubuntu/audio-deepfake-detection/SSL
 # local
-#export PYTHONPATH=/d/Uni/FYP/Implementation/Code/SSL
+export PYTHONPATH=/d/Uni/FYP/Implementation/Code/SSL

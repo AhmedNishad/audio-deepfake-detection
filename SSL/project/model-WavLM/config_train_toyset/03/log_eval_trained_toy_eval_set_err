@@ -1,7 +1,0 @@
-D:\Software\Anaconda\envs\fairseq-pip2\lib\site-packages\scipy\__init__.py:146: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.24.3
-  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
-2024-03-13 17:22:04 | INFO | fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
-D:\Software\Anaconda\envs\fairseq-pip2\lib\site-packages\torch\nn\utils\weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
-  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
-D:\Software\Anaconda\envs\fairseq-pip2\lib\site-packages\torch\nn\functional.py:5476: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:263.)
-  attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
